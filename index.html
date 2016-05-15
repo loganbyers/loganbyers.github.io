@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <script src="page.js"></script>
+    <link rel="stylesheet" href="page.css">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Logan C. Byers</title>
+    </head>
+
+    <body>
+
+    <header role="banner">
+        <a href="http://www.logancbyers.com"><img src="images/byers_headshot_556.jpg" alt="byers_headshot" title="Me teaching 2015 KU Field Camp at Capitol Reef National Park, Utah" width="128px" height="128px" align="left" hspace="20px" float=none></a>
+        <span>
+          <h1>Logan C. Byers</h1>
+          This is my personal webpage. I am still learning website design, but I am putting more content on it every day.
+        </span>
+    </header>
+    <br>
+    <br>
+
+    <h1>Academic Projects</h1>
+    <section class="projects">
+        <input id="project1_button" type="button" class="button" onClick="return toggleExpand2('project_paragraph1', 'project1_button')"
+               value="[+] Glacier Motion from Terrestrial Laser Scanning">
+        <div id="project_paragraph1" style="display:none"><p>
+            <div class="project_description">
+                <img src="images/helheim_south_animated.gif" alt="helheim_animated" title="Southern edge of Helheim Glacier over ~3 days; image is 350m wide" align="left" hspace="20px" style="PADDING-BOTTOM: 10px">
+                <p>
+                  To identify the processes controlling glacer motion and improve models of future changes in sea level it is critical to record and characterize the motion of major ice sheet outlet glaciers.
+                  Motion must be captured at timescales from minutes to months in order to understand a range of dynamic processes such as stick-slip motion, iceberg calving, diurnal speed variability, and interactions between glaciers and floating sea ice.
+                  Terrestrial LiDAR scanners can image 3-dimensional surfaces at high temporal resolutions, providing new insights into physical processes occurring in regions of rapid glacier change.
+                  However, processing LiDAR data to compute spatially and time-variant glacier motion is not trivial.
+                  By improving methods for displacement mapping from multi-temporal LiDAR scans, it will be possible to provide a record of glacier motion on timescales and with spatial coverage that fills a missing gap in the current set of observation methods.
+                </p>
+                <p>
+                  As part of my Masters work,  I have been developing software and processing workflows to quantify motion and deformation from repeat LiDAR surveys at Helheim Glacier, Southeast Greenland.
+                  Helheim Glacier is one of the fastest glaciers in Greenland, moving at rates of around 20 meters per day in the summertime.
+                  Even over a short time of 30 minutes between scans the center of the glacier can move in excess of 50 cm.
+                  Near the edges, however, the glacier might move on the order of millimeters.
+                  There are some problems with computing velocity automatically and without user intervention, making this work first in its kind within the Earth Sciences.
+                  The very deformation (strain and strain-rate) that is sought can also be a source of uncertainty when registering two scans.
+                  At the simplest current level, we make the assumption that over small areas the morphological changes will be small enough that the full motion can be estimated by a 3-D rigid-body transformation (6 DoF).
+                  Simply subsetting the cloud into a grid of square chips and then performing registration with the iterative closest point (<a href="http://dx.doi.org/10.1109/34.121791">ICP</a>) algorithm produces fairly desirable results.
+                  We take it a step further by using inherent attributes of the point clouds such as point-density to intelligently segment a cloud rather than using arbitrary segmentation schemes such as square chips.
+                </p>
+                <p>
+                  The software I am writing uses <a href="http://pointclouds.org">Point Cloud Library</a> and C++ for most of the underlying point manipulation.
+                  Visualization, plotting, and further analysis is performed with Python.
+                  This work is part of a joint effort between researchers at the University of Kansas, <a href="http://climatechange.umaine.edu/people/profile/gordon_hamilton">University of Maine</a>, and the <a href="http://www.erdc.usace.army.mil/Locations/CRREL.aspx">US Army Corps of Engineers Cold Regions Research and Engineering Laboratory (CRREL)</a> to establish year-round autonomous monitoring of glaciers.
+                  Instrumentation is supported by <a href="http://www.riegl.com/media-events/newsletter-archiv/0213-riegl-vz-6000-completes-first-project/">RIEGL USA</a>.
+                  You can find more about this project at <a href="http://atlas.lidar.io/">lidar.io</a>.
+                </p>
+            </div>
+        </div>
+    </section><p>
+
+    <section class="projects">
+        <input id="project2_button" type="button" class="button" onClick="return toggleExpand2('project_paragraph2', 'project2_button')"
+               value="[+] Imaging Subglacier Discharge with Thermal Infrared">
+        <div id="project_paragraph2" style="display:none"><p>
+          Subglacial hydrology is known to govern the dynamic motion of ice sheets and glaciers, but its effects are highly non-linear, counterintuitive, and otherwise poorly understood due to lack of available methods for monitoring such an environment.
+          <i>In situ</i> monitoring of subglacial hydrology has been  <a href="http://dx.doi.org/10.1038/nature13796">successful</a> in the past, but can be limited to areas where hydrologic variability is manifest as pressure changes.
+          At the ice-ocean interface, for instance, the proximal effect of the ocean shouldn't permit substantial changes in pressure.
+          Freshwater discharge affects the temperature-salinity stratification and circulation patterns within fjords, which can feedback into the dynamics of terminus melting and undercutting.
+        </p>
+        <p>
+          As part of NASA-funded <a href="https://vimeo.com/153869736">field research in West Greenland</a>, we collaborated with researchers at the <a href="http://www.catania-ice.org/">Institute for Geophysics at the University of Texas at Austin</a>, <a href="http://pages.uoregon.edu/dsuth/">University of Oregon</a>, and <a href="http://people.oregonstate.edu/~shroyere/Welcome.html" target="_blank" onclick="window.open('http://makani.coas.oregonstate.edu/nash/About_Me.html');">Oregon State University</a> to install a temporary thermal infrared (7.5 um to 13 um) camera near the terminus of a tidewater outlet glacier.
+          The goal was to image subglacial discharge of cold freshwater into the salty and relatively warm fjord waters and visualize the impact, if any, of spatial and temporal discharge variability in influencing fjord circulation.
+          We captured an image every 15 minutes to produce a 10-day timeseries from a vantage point on the fjord wall about 1.5 km above sea level and 2 km laterally from the glacier terminus.
+          During the acquisition period the scene was evolving as icebergs calved off the terminus, freshwater discharged into the fjord, and weather was variable.
+        </p>
+        <p>
+          Water and water-vapor are highly absorptive (and therefore emissive) in the thermal infrared bands, making weather the greatest problem to overcome in the processing workflow.
+          Though co-incident optical timelapse images were available, absolute measurements of humidity and temperature were not.
+          I devised a workflow to obtain estimates of atmospheric conditions using in-scene corrections from the relation between distance and brightness temperature for the imaged glacier.
+          The scene was segmented into ice, water, and rock using a supervised region growing algorithm.
+          Path distances were computed using a bespoke projection onto a digital elevation surface.
+          The atmospheric radiative transfer software MODTRAN&reg;4 was used to model at-sensor radiance over a dense atmospheric parameter space of path distance, humidity, and temperature for a surface of zero degree ice.
+          Various models and non-linear regressions were fit to both the observed and modeled data to interpolate within the parameter space.
+          Unfortunately the model-fitting does not provide a unique solution, as there are two parameters (humidity, temperature) and one known variable (path distance).
+          If <i>a priori</i> knowledge about the temperature of another element in the scene were known, then unique solutions would be obtainable.
+        </p>
+        </div>
+    </section><p>
+
+    <section class="projects">
+        <input id="project3_button" type="button" class="button" onClick="return toggleExpand2('project_paragraph3', 'project3_button')"
+               value="[+] Width-averaging Glacier Geometry For 1-D Flowlines">
+        <div id="project_paragraph3" style="display:none"><p>
+          <img src="images/rink_wavg_animation.gif" alt="width-averaging animation" title="Rink Isbrae" align="left" hspace="20px" style="PADDING-BOTTOM: 10px">
+          Numerical models of glacier flow have many forms and assumptions about the underlying physics governing their evolution.
+          One-dimensional flowline models can be thought of as a time-evolving along-flow cross-section of a glacier.
+          The benefits of 1-D flowline models include relative computational efficiency and ease of parameterization compared to higher-order models.
+          Numerically, these models operate by solving a continuity equation that assumes uniform motion/deformation transverse to the flowline direction, thereby reducing the dimensionality of the physics.
+          Glacier width (effectively distance perpendicular to the flowline) as a function of flowline distance is an important parameter that is needed to explain the lateral convergence of ice along flow.
+          I have written a description and tutorial for a simple constant-width model of an ice sheet, which can be found <a href="http://loganbyers.github.io/glacier-course/module/modeling/lamellar_flow/lamellar_flow.html">online</a>.
+          To test hypotheses concerning the response of individual glaciers to perturbations such as climatic forcing or iceberg calving, it is imperative that realistic glacier geometries be approximated.
+          Ideally, this geometry would be constrained by real data assimilated from community datasets such as digital elevation models of the bed surface and glacier surface.
+        </p>
+        <p>
+          I developed a software package that is used within the <a href="http://stearns.dept.ku.edu/">Glaciology and Remote Sensing Group at the University of Kansas</a> to perform what we are calling "width-averaging".
+          The software uses community mosaics of surface velocity to virtually track the path of massless particle through a velocity field.
+          Crosslines are then computed by tracking points spaced equidistant along this centerline through the orthogonal velocity fields.
+          Values are extracted from an arbitrary set of rasters along these crosslines and averaged, with some simple statistical measures being calculated as well.
+          All the processing is performed in python using the OSGEO suite, GDAL, and numpy.
+          The script outputs plain-text tables and ESRI shapefiles from the particle tracking.
+          It is fully automated as a command-line script, but can also be used as an imported module.
+          We currently have not released the software to the public.
+          In the meantime, enjoy the animation demonstrating the process.
+        </p>
+        </div>
+    </section><p>
+
+    <section class="projects">
+        <input id="project4_button" type="button" class="button" onClick="return toggleExpand2('project_paragraph4', 'project4_button')"
+               value="[+] Anaglyph 3-D Maps and Simulated Stereo Imagery">
+        <div id="project_paragraph4" style="display:none"><p>
+            <a href="https://github.com/loganbyers/anaglypher"><img src="images/anaglypher_logo_large.png" alt="alternate text here" title="anaglypher" width="128px" height="128px" align="left" hspace="20px" vspace="10px"></a>
+            Earth’s topography holds a rich history of interaction between rock, climate, and surface processes.
+            Outstanding advancements in the creation and distribution of digital elevation models (DEMs) have increased the accessibility of quantitative topographic analysis and process-based modeling.
+            Topographic data is usually visualized as contour lines or colored ‘height’ maps in the flat plane of computer monitors or printed sheets of paper.
+            Successful interpretation of these visualizations relies on knowledge and intuition that is built over time and is generally absent in the novice student population.
+            These visualization techniques further provide little aid in interpreting spatially-overlapping data such as satellite or aerial imagery.
+            Anaglyph-3D images simulate three-dimensional surfaces on two-dimensional planes by exploiting stereo images that are tinted by complimentary colors.
+            When viewed through corresponding filters placed over each eye, the opposing color is perceived as black.
+            Each eye therefore receives a different image and the mind constructs a three-dimensional stereo view.
+            Anaglyph-3D images benefit over stereo imagery by using relatively simple and inexpensive hardware at the sacrifice of full color representation.
+            </p>
+            <p>
+            The purpose of this project was to develop a small software package that would aid in creating anaglyph (red-cyan) images using a DEM and a co-registered image.
+            Such anaglyph images are frequently employed in entry-level field geology courses at the University of Kansas, which motivated writing the code to make higher-quality results than had previously been available.
+            The software simulates stereo image pairs by laterally shifting pixel intensities a distance proportional to the elevation at the pixel location.
+            Parameters to the program are physically-based and permit simulated vertical exaggeration as well as shadow-box and pop-out effects.
+            Anaglyph-3D hillshades can also be generated, which provide a visualization of topography without surficial textures.
+            This project is written in Python and uses GDAL to ensure the geospatial information is retained, keeping the output images usable within a GIS.
+            </p>
+            <p>
+            This software was presented at a 2015 research symposium held by the University of Kansas' Department of Geology, where the presentation was awarded a second-place prize in the graduate student section.
+            I have used this software for a number of projects, including part of an outreach activity for an elementary classroom's mapping module.
+            I also completed the maps for the field geology course for which the software was originally designed.
+            This involved georeferencing scanned USGS aerial photos using QGIS and resampling USGS DEMs to equivalent resolution.
+            The project can be found on Github under the name <a href="https://github.com/loganbyers/anaglypher">anaglypher</a>, where it is copyright under the Apache V2 license.
+            </p>
+        </div>
+    </section><p>
+
+    <footer>
+    <p>Connect with me: <a href="mailto:loganbyers@ku.edu">email</a> : <a href="http://github.com/loganbyers">github</a></p>
+    </footer>
+
+    </body>
+</html>

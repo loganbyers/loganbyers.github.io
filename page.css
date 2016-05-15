@@ -1,0 +1,93 @@
+/*input.button {
+  color: #fff; background: #0034D0;
+  font-size: .8em;
+  font-weight:bold;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  border: solid 1px #ffcf31;
+}*/
+
+body {
+  font-family: monospace, sans-serif;
+  overflow-y: scroll;
+  margin: auto;
+  max-width: 900px;
+  padding: 15px;
+
+}
+
+a:link, a:visited{
+  color: black;
+  text-decoration: underline;
+}
+
+input.button {
+ width: 100%;
+ display: inline-block;
+ margin: 0 10px 0 0;
+ padding: 5px 10px;
+ font-size: 16px;
+ font-family: monospace;
+ line-height: 1.8;
+ appearance: none;
+ box-shadow: none;
+ border-radius: 4px;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+
+
+section.projects input.button {
+  color: #fff;
+  background-color: #323232;
+  text-shadow: -1px 1px #545460;
+  border: none;
+}
+
+section.projects input.button:hover,
+section.projects input.button.hover {
+  background-color: #6a6a6a;
+  text-shadow: -1px 1px #545460;
+}
+
+#project1_button:hover, #project1_button.hover {
+  background-color: #1D4350;
+  text-shadow: -1px 1px #545460;
+}
+
+#project2_button:hover, #project2_button.hover {
+  background-color: #246C32;
+  text-shadow: -1px 1px #545460;
+}
+
+#project3_button:hover, #project3_button.hover {
+  background-color: #7B872B;
+  text-shadow: -1px 1px #545460;
+}
+/*
+#project2_button:hover, #project2_button.hover {
+  background-color: #4A3F45;
+  text-shadow: -1px 1px #545460;
+}
+
+#project3_button:hover, #project3_button.hover {
+  background-color: #773C3B;
+  text-shadow: -1px 1px #545460;
+}*/
+
+#project4_button:hover, #project4_button.hover {
+  background-color: #A43931;
+  text-shadow: -1px 1px #545460;
+}
+
+p {
+    font-family: sans-serif !important;
+}
+
+/*section.projects input.button:active,
+section.projects input.button.active {
+  background-color: #1b1b1b;
+  text-shadow: -1px 1px #193047;
+}*/
