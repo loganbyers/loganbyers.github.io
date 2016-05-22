@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cloris Leachman Song Generator</title>
+        <style>
+            h1 {font-size: 20px;}
+            table,tr {
+                border: 1px solid black;
+                border-collapse: separate;
+                border-spacing: 5;
+            }​
+
+        </style>
+    </head>
+
+    <h1> Me and Cloris Leachman Makin' Funny Songs at This Webpage</h1>
+
+    <table id="permutations_table" rules="cols">
+        <tr align="center">
+            <td> Me and </td>
+            <td> First Name </td>
+            <td> Last Name </td>
+            <td> Verbin' </td>
+            <td> Something </td>
+            <td> Else </td>
+            <td> at </td>
+            <td> Someone's </td>
+            <td> Place </td>
+        </tr>
+    </table>
+    <p>Permutations: <div id="num_permutations"></div></p>
+
+    <body>
+        <p><a href="http://www.earwolf.com/show/pistol-shrimps-radio/">Inspired by Pistol Shrimps Radio</a></p>
+        <script>
+        var names_first = ["Aaron", "Abby", "Addy", "Allie", "Alvin", "Andrew", "Andy", "Arlo", "Ashton", "Aziz", "Baggy", "Bambi", "Batu", "Beggar", "Bertha", "Bilbo", "Billie", "Boba", "Bobcat", "Bonny", "Borvo", "Brandon", "Brenda", "Brian", "Brody", "Budgie", "Caleb", "Candice", "Carol", "Carter", "Cassie", "Chewie", "Chrissie", "Clancy", "Clancy", "Clevis", "Cloris", "Connor", "Conny", "Crimple", "Dabney", "Danielle", "Danny", "Dante", "Dappy", "Darlene", "Darwin", "Davey", "Dippy", "Dolly", "Donna", "Dovey", "Dubar", "Dylan", "Eagle", "Eagle", "Edith", "Edvard", "Effie", "Ellen", "Elmo", "Ema", "Erin", "Esther", "Ethan", "Eunice", "Fannie", "Faro", "Farrah", "Felix", "Fifi", "Filbert", "Filmore", "Frances", "Francoise", "Franklin", "Freddy", "Gadfluke", "Garry", "Gemma", "Gertrude", "Gina", "Ginny", "Gladys", "Goran", "Grayson", "Greedo", "Griffin", "Grimble", "Gruudal", "Halley", "Hamish", "Handsome", "Hannah", "Harold", "Harton", "Hazel", "Heather", "Helen", "Helga", "Hester", "Hubert", "Hudson", "Hunter", "Ida", "Igor", "Iisoff", "Ilsa", "Irene", "Iris", "Irvin", "Isaac", "Ivan", "Ivy", "Jabba", "Jaime", "Jango", "Janice", "Jarbo", "Jasmine", "Jerry", "Jimbo", "Joaquin", "Jocko", "Joffrey", "Josie", "Judith", "Julie", "Jurban", "Karen", "Katie", "Katrin", "Keegan", "Kevin", "Kiefer", "Kimmy", "Kingston", "Kreebel", "Kylo", "Lady", "Landers", "Laura", "Leia", "Leslie", "Levi", "Lisa", "Logan", "Loki", "Lori", "Lucas", "Lucy", "Lulu", "Mabel", "Mandel", "Mandy", "Martha", "Mary", "Massad", "Melvin", "Milli", "Mina", "Molly", "Morgan", "Morty", "Nadya", "Nancy", "Nellie", "Nelson", "Neville", "Nicky", "Nigel", "Nina", "Noah", "Noelle", "Noober", "Norma", "Nugbert", "Olaf", "Olga", "Olive", "Olwen", "Opal", "Oprah", "Orin", "Oscar", "Otto", "Paget", "Paula", "Peggy", "Percy", "Perry", "Peter", "Peville", "Phoebe", "Phyllis", "Piper", "Praubbell", "Quarter", "Queenie", "Quidel", "Quinby", "Quincy", "Quinlan", "Quinlan", "Quintus", "Rachel", "Raggle", "Raja", "Raleigh", "Rana", "Reggie", "Riley", "Ripley", "Robert", "Ronan", "Rosie", "Ruby", "Sammy", "Sarah", "Selma", "Shiloh", "Sidney", "Silas", "Sonya", "Sophie", "Stacy", "Stella", "Stewart", "Strondon", "Tabby", "Tempest", "Temple", "Terfel", "Terri", "Thelma", "Timmy", "Tobin", "Tonya", "Tori", "Trenton", "Trevor", "Tyler", "Ukko", "Ulna", "Ulrich", "Ulu", "Uma", "Umar", "Ute", "Uubin", "Uzzi", "Vaaldon", "Vanna", "Vara", "Vasco", "Vicky", "Victor", "Vigo", "Vincent", "Violet", "Waldo", "Wally", "Wanda", "Wendel", "Wigwum", "Willow", "Wilma", "Wilson", "Winnie", "Womprat", "Wookie", "Xabrin", "Xander", "Xavi", "Xavier", "Xena", "Xenon", "Xerxes", "Yaakov", "Yanik", "Yarvis", "Yasir", "Yerrggot", "Yeva", "Yoda", "Yuki", "Yuri", "Zalso", "Zara", "Zayid", "Zelda", "Zephyr", "Zhubin", "Zilla", "Zita", "Zoey", "Zorbo"];
+        var names_last = ["Abbot", "Abney", "Alfson", "Archer", "Arson", "Arthur", "Ashgad", "Ayers", "Baba", "Babcock", "Bantoo", "Bentbow", "Bentcock", "Bibble", "Bindi", "Birdshop", "Blondcap", "Bloodworth", "Blowhard", "Bluemouth", "Bogblow", "Bogsniff", "Boogie", "Brandish", "Buggles", "Buggsy", "Butcher", "Carter", "Catskin", "Cheesecloth", "Cockburn", "Conway", "Cooper", "Corngrease", "Crowhead", "Crowley", "Deadman", "Dildo", "Dogskin", "Dooku", "Draper", "Dreadnaught", "Dryfoot", "Dunkel", "Earsack", "Fangor", "Fartsniff", "Fisto", "Flaghoist", "Flatchest", "Footsack", "Forest", "Funbun", "Gangrene", "Goatherd", "Goddard", "Godfrey", "Gourley", "Grandin", "Gregor", "Greyskull", "Gronstaff", "Gutsack", "Halfwind", "Harfen", "Hideflute", "Horsecock", "Horsehead", "Huyang", "Janson", "Kerbal", "Kickchild", "Kleaver", "Knopfler", "Lapkus", "Leachman", "Leadshoe", "Leftfoot", "Lickmouth", "Limpwrist", "Longbeard", "Longstaff", "Lordface", "Lostwig", "Lovelace", "Lynwood", "Mandrell", "Martins", "Meadows", "Midgley", "Milkman", "Millhouse", "Mingehead", "Mothma", "Mousebreath", "Mousecock", "Munson", "Naboo", "Newport", "Nobis", "Norwood", "Nudo", "Outlaw", "Paget", "Panforge", "Paploo", "Parish", "Peacock", "Pellham", "Pinkstaff", "Pogba", "Quicksand", "Ratworth", "Rebo", "Redskull", "Rimmer", "Ronstadt", "Saltlick", "Samuels", "Sanders", "Sapworth", "Sardine", "Sausage", "Savage", "Scarlett", "Schwartzkopf", "Shaker", "Shakesheep", "Shaketree", "Sheppard", "Shiner", "Shinsplint", "Shipmate", "Shoehorn", "Shoestuff", "Silver", "Skillbo", "Slater", "Smegma", "Snaketooth", "Snyder", "Solo", "Southgate", "Southwind", "Spillmore", "Spindle", "Springfield", "Stewart", "Stoddard", "Straightbrook", "Tallman", "Talzin", "Tano", "Tarkin", "Thinknaught", "Tinker", "Tompkins", "Towndrunk", "Trinkmilch", "Tungsten", "Upton", "Urban", "Ventress", "Wagstaff", "Wakefield", "Whitesun", "Whoresbreath", "Whoresfoot", "Wigface", "Windu", "Winwood", "Woodring", "Zaltan", "Zimmer", "Zoogma"];
+        var verbs = ["Ask", "Bang", "Barf", "Beep", "Belch", "Bidd", "Birth", "Break", "Brib", "Buff", "Busk", "Buy", "Carv", "Clear", "Clown", "Crimp", "Cuddl", "Digg", "Draw", "Dripp", "Eat", "Feed", "Find", "Fir", "Flash", "Grabb", "Grind", "Hang", "Heal", "Heap", "Hear", "Hear", "Heat", "Hoist", "Hold", "Hump", "Hurt", "Husk", "Ic", "Itch", "Jabb", "Jiggl", "Joust", "Jump", "Keep", "Knif", "Knitt", "Land", "Lick", "Lift", "Light", "Lov", "Mak", "Melt", "Miss", "Morph", "Mov", "Mugg", "Mush", "Nibbl", "Noodl", "Nuk", "Pimp", "Piss", "Pour", "Prank", "Pull", "Pump", "Quilt", "Quit", "Rak", "Read", "Real", "Ribb", "Rid", "Riff", "Ring", "Robb", "Roll", "Rough", "Ruffl", "Runn", "Scoop", "Screw", "Sell", "Sew", "Shoot", "Shov", "Sing", "Sipp", "Sling", "Smell", "Sniff", "Soil", "Squibb", "Swell", "Swing", "Tak", "Tast", "Teach", "Tell", "Tooth", "Toss", "Touch", "Trad", "Try", "Vap", "Walk", "Wear", "Whipp", "Womp", "Worm", "Wrangl", "Yank", "Yell"];
+        var things = ["Acid", "Angel", "Apple", "Baby", "Barley", "Beavers", "Beetle", "Belly", "Bible", "Birthday", "Biscuit", "Blanket", "Booger", "Buckwheat", "Bulgur", "Buttock", "Candle", "Candy", "Candy", "Chamois", "Circus", "Clovis", "Cocaine", "Cornbread", "Couscous", "Cuddle", "Cymbal", "Daddy", "Dingo", "Doctor", "Dolphin", "Donkey", "Doorbell", "Dragon", "Eagle", "Finger", "Flapjack", "Flaxseed", "Flower", "Fodent", "Freedom", "Funnel", "Garlic", "Ginger", "Goatmilk", "Handle", "Honey", "Hotcake", "Iron", "Jelly", "Judgement", "Justice", "Lattice", "Lilly", "Logroll", "Lolly", "Mango", "Marrow", "Mayo", "Millet", "Monkey", "Muesli", "Noodle", "Oatmeal", "Orbit", "Pamphlet", "Panda", "Parsnip", "Pasta", "Pencil", "Penny", "People", "Pita", "Pizza", "Pretzel", "Princess", "Printer", "Pumpkin", "Quinoa", "Rainbow", "Rally", "Rebel", "Rhino", "Saffron", "Sandal", "Silver", "Sorghum", "Sugar", "Sushi", "Table", "Tiger", "Tuba", "Tuber", "Turnip", "Turtle", "Vandal", "Vegan", "Villain", "Whisper", "Yodel"];
+        var things2 = ["Ads", "Apes", "Arms", "Arts", "Babes", "Bands", "Baths", "Bats", "Bids", "Bills", "Bins", "Birds", "Bombs", "Boobs", "Bras", "Broads", "Broths", "Butts", "Cakes", "Cans", "Caps", "Cars", "Clods", "Cocks", "Cods", "Cops", "Cows", "Dicks", "Dips", "Dolls", "Dreams", "Droids", "Drops", "Ducks", "Ears", "Fads", "Fans", "Films", "Fires", "Franks", "Frogs", "Gods", "Hags", "Hymns", "Ides", "Imps", "Jumps", "Kegs", "Laps", "Laughs", "Limbs", "Links", "Loafs", "Logs", "Loops", "Moons", "Mounds", "Mouths", "Nips", "Nods", "Nuts", "Orbs", "Pads", "Pits", "Pods", "Poops", "Pops", "Pots", "Psalms", "Pumps", "Quotes", "Rags", "Ribs", "Rocks", "Rolls", "Rubs", "Rugs", "Shields", "Ships", "Shots", "Souls", "Soups", "Squats", "Squirts", "Stones", "Tarps", "Teas", "Tents", "Trucks", "Tubs", "Tusks", "Urns", "Vans", "Vats", "Vines", "Webs", "Worms", "Yarns", "Years", "Zoos"];
+        var place_names = ["Ass", "Beak", "Blake", "Blank", "Brew", "Busk", "Club", "Con", "Court", "Cox", "Cut", "Dill", "Drill", "Dunk", "Feyn", "Fish", "Flag", "Floo", "Foul", "Fox", "Fuck", "Ful", "Fur", "Gill", "Glib", "Greg", "Gross", "Hell", "Hold", "Host", "Jut", "Klein", "Leach", "Lick", "Lip", "Long", "Love", "Lunch", "Mail", "Mill", "Mole", "Musk", "New", "Pine", "Pog", "Pox", "Red", "Rick", "Rink", "Rock", "Sag", "Sal", "Scrub", "Skill", "Smurf", "Sod", "Squash", "Steel", "Stew", "Still", "Stub", "Stud", "Terp", "Till", "Tip", "Tub", "Tub", "Tuff", "Turf", "Turk", "Tusk", "Vic", "Wolf"];
+        var places = ["Ark", "Bank", "Bar", "Beach", "Bend", "Berg", "Berg", "Berth", "Bluff", "Bog", "Brook", "Butte", "Camp", "Caunch", "Cave", "Cay", "Clap", "Cliff", "Club", "Coop", "Court", "Cove", "Crack", "Crick", "Crop", "Crown", "Cuff", "Curb", "Dam", "Dell", "Den", "Dike", "Ditch", "Dock", "Drop", "Drop", "Dug", "Dump", "Dump", "Dune", "Eave", "Farm", "Fell", "Fen", "Fief", "Firth", "Fjord", "Flat", "Floor", "Forge", "Fort", "Gaol", "Glade", "Glen", "Gorge", "Grave", "Grove", "Gulch", "Heap", "Heath", "Hill", "Hold", "Hole", "Hump", "Hut", "Hutch", "Inn", "Kame", "Keep", "Keep", "Lair", "Lake", "Launch", "Leap", "Ledge", "Lick", "Loch", "Lodge", "Loft", "Manse", "Maze", "Mill", "Mine", "Moor", "Motte", "Mount", "Nest", "Notch", "Own", "Park", "Pass", "Peak", "Pier", "Pike", "Pit", "Pit", "Plain", "Pool", "Post", "Pound", "Pub", "Reef", "Ridge", "Ridge", "Rift", "Rill", "Rise", "Roof", "Roost", "Rub", "Scar", "Scrub", "Shell", "Slit", "Slum", "Snap", "Stand", "Steppe", "Stoop", "Strand", "Stub", "Swamp", "Swell", "Tomb", "Town", "Trace", "Tree", "Trench", "Turn", "Vale", "Vale", "Way", "Well", "Wharf", "Yard", "Yurt", "Zoo"];
+
+        var table = document.getElementById("permutations_table");
+        var row = table.insertRow();
+        row.insertCell(0).innerHTML = 1;
+        row.insertCell(1).innerHTML = names_first.length;
+        row.insertCell(2).innerHTML = names_last.length;
+        row.insertCell(3).innerHTML = verbs.length;
+        row.insertCell(4).innerHTML = things.length;
+        row.insertCell(5).innerHTML = things2.length;
+        row.insertCell(6).innerHTML = 1;
+        row.insertCell(7).innerHTML = place_names.length;
+        row.insertCell(8).innerHTML = places.length;
+
+        var perms = document.getElementById("num_permutations");
+        var num_perms = names_first.length * names_last.length * verbs.length * things.length * things2.length * place_names.length * places.length;
+        perms.innerHTML = num_perms;
+
+        function addNewSong() {
+            var comment = "Me and " +
+                          names_first[Math.floor(Math.random()*names_first.length)] + " " + names_last[Math.floor(Math.random()*names_last.length)] +
+                          " " + verbs[Math.floor(Math.random()*verbs.length)] + "in' " +
+                          things[Math.floor(Math.random()*things.length)] + " " + things2[Math.floor(Math.random()*things2.length)] +
+                          " at " +
+                          place_names[Math.floor(Math.random()*place_names.length)] + "man's " + places[Math.floor(Math.random()*places.length)];
+            var newParagraph = document.createElement('p');
+            newParagraph.textContent = comment;
+            document.getElementById("songOutput").appendChild(newParagraph);
+        }
+        </script>
+
+        <input id="addline" type="button" class="button" onClick="return addNewSong()" value="Make that Song!">
+        <div id="songOutput"></div>
+
+    </body>
+
+</html>
